@@ -6,6 +6,7 @@ include 'model/GreetingModel.php';
 class HelloController{
 
 	private $greeting;
+	private $hello;
 
 	public function __construct() {
 	
@@ -16,9 +17,14 @@ class HelloController{
 		$this -> greeting -> setGreeting("Hello");		
 		$arrayName = array($this -> greeting, $this -> greeting, $this -> greeting);
 
-		// foreach ($arrayName as $array) {
-		// 	echo $array -> getGreeting() . "<br/>";
-		// }
+		$this -> hello = new HelloModel();
+		$this -> hello -> setHello("Hello World");
+		$this -> greeting -> setHello($this -> hello);
+		$this -> greeting -> setHello($this -> hello);
+		$this -> greeting -> setHello($this -> hello);
+		$this -> greeting -> setHello($this -> hello);
+		$this -> greeting -> setHello($this -> hello);
+				
 
 		echo json_encode($this -> greeting);
 	}

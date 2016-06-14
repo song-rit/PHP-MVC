@@ -1,6 +1,6 @@
 <?php
 
-class HelloModel{
+class HelloModel implements JsonSerializable {
 
 	private $hello;
 
@@ -11,5 +11,11 @@ class HelloModel{
 	public function getHello(){
 		return $this -> hello;
 	}
+
+	  public function jsonSerialize()
+    {		
+		$obj = (object) array('message' => $this -> hello);
+        return  $obj;
+    }
 }
 ?>

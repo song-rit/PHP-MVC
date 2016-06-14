@@ -6,6 +6,8 @@ class GreetingModel implements JsonSerializable {
 
 	private $greeting;
 
+	private $ListHelloModel = array();
+
 	public function setGreeting($greeting) {
 		$this -> greeting = $greeting;
 	}
@@ -14,16 +16,20 @@ class GreetingModel implements JsonSerializable {
 		return $this -> greeting;
 	}
 
-	public function getJSONEncode() {
-		// return json_encode(value);
+	public function setHello($HelloModel) {
+		// $this -> hello. 
+		array_push($this -> ListHelloModel, $HelloModel);
+	}
+
+	public function getHello() {
+
 	}
 
     public function jsonSerialize()
     {
         return [
-            'customer' => [
-                'greeting' => $this -> greeting
-            ]
+                'greeting' => $this -> greeting,
+                'hello' => $this -> ListHelloModel     
         ];
     }
 }
